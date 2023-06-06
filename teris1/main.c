@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
@@ -319,6 +319,14 @@ bool move(Block canvas[CANVAS_HEIGHT][CANVAS_WIDTH], int originalX, int original
     return true;
 }
 
+void drawWelcomeScreen() 
+{
+    system("cls");  // 清屏
+    printf("Welcome To Tetris!\n\n");
+    printf("Press any key to start...");
+    getch();  // 等待用户按下任意键
+}
+
 void printCanvas(Block canvas[CANVAS_HEIGHT][CANVAS_WIDTH], State* state)
 {
     printf("\033[0;0H\n");
@@ -451,6 +459,7 @@ void logic(Block canvas[CANVAS_HEIGHT][CANVAS_WIDTH], State* state)
 
 int main()
 {
+    drawWelcomeScreen();
     srand(time(NULL));
     State state = {
         .x = CANVAS_WIDTH / 2,
